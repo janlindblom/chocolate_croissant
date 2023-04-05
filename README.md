@@ -51,6 +51,8 @@ the Pico.
 
 ![Chocolate Croissant](images/chocolate_croissant.png)
 
+![Chocolate Croissant](images/chocolate_croissant_back.png)
+
 ## TODO
 
 - [ ] Connect Raspberry Pi B+ pins `GPIO26` and `GPIO27` (**NOTE:** To what??)
