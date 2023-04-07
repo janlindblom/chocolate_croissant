@@ -6,15 +6,14 @@ This is a breakout board for when you want to fit a Raspberry Pi [34] B hat
 onto a Raspberry Pi Pico or fit a Raspberry Pi Pico in something that expects a
 full Raspberry Pi [34] B+.
 
-The Raspberry Pi Pico W fits too of course, but the debug pins aren't connected
-on the PCB, not yet at least.
+The Raspberry Pi Pico W fits too of course.
 
 ## Pinout
 
 The pinout might not be what you expect since the idea is to map function to
 function rather than GPIO pin to pin.
 
-By this I mean that the Pico I2C0 pins are mapped to the I2C pins of the
+By this I mean that the Pico I2C0 pins are mapped to the I<sup>2</sup>C pins of the
 Raspberry Pi B+, SPI0 on the Pico is mapped to the SPI of the Raspberry Pi B+
 and so on.
 
@@ -47,15 +46,49 @@ the question is to what they should be connected. Maybe I need to rethink the
 mapping of other stuff since I don't really have any more pins to connect from
 the Pico.
 
+### Special Breakouts
+
+There are a couple of special breakouts avaiable:
+
+- I<sup>2</sup>C - Four pin connector for general I<sup>2</sup>C devices
+- SPI - Two SPI pin connectors:
+  - Six pin SPI to fit SPI devices with six pins
+  - Eight pin SPI to fit SPI devices with eight pins
+- Qwiic/STEMMA QT - Two placements for Qwiic/STEMMA QT connectors:
+  - I<sup>2</sup>C connected to I2C0 on the Pico
+  - I<sup>2</sup>C connected to the debug pins
+
 ## Images
 
-![Chocolate Croissant](images/chocolate_croissant.png)
+![Chocolate Croissant Perspective View](images/chocolate_croissant_perspective.png)
 
-![Chocolate Croissant](images/chocolate_croissant_back.png)
+![Chocolate Croissant Front View](images/chocolate_croissant.png)
+
+![Chocolate Croissant Back View](images/chocolate_croissant_back.png)
 
 ## TODO
 
 - [ ] Connect Raspberry Pi B+ pins `GPIO26` and `GPIO27` (**NOTE:** To what??)
 - [ ] Add a reset button somewhere and set it up to Pico pin `RUN` maybe(?)
-- [ ] Add some more "special" breakouts to enable attaching debug headers, displays, I2C/SPI stuff...
-- [ ] Describe any and all "special" breakouts, like the I2C mounting holes
+- [x] Add some more "special" breakouts to enable attaching debug headers,
+  displays, I<sup>2</sup>C/SPI stuff...
+- [x] Describe any and all "special" breakouts, like the I<sup>2</sup>C mounting
+  holes
+
+## Future/Other Work
+
+The `over_the_top` folder holds stuff related to the "over the top" version
+which is basically a full blown RP2040 on a Raspberry Pi B+ board, it's based on
+the KB2040 and the Raspberry Pi Pico datasheet and has a ton of tiny SMD
+components that needs to be soldered to the board.
+
+The idea is to use JLCPCB soldering services to have them all connected but that
+requires some more research into which components they offer and such.
+
+It's far from done and isn't really useful yet. Might finish it, might not. The
+biggest hurdle is to get a wireless chip and antenna onto it, but I don't know
+which chip that would be just yet. Could probably use the same as the Pico W,
+but I think I would need to use a different antenna.
+
+Anyway, there are some question marks regarding licenses for the chip and
+antenna used on the Pico W that seems to indicate they are not quite free to use?
